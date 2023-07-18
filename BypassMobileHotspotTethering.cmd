@@ -27,7 +27,6 @@ IF %MAIN1%==6 GOTO:RESETIPV6
 IF %MAIN1%==7 GOTO:EOF
 IF %INPUT1%==false GOTO:MAIN1
 
-::SHOW
 :SHOWIPV4
 CLS
 netsh int ipv4 show global
@@ -39,7 +38,6 @@ netsh int ipv6 show global
 PAUSE
 GOTO:MAIN1
 
-::SET
 :CHANGEIPV4
 CLS
 netsh int ipv4 set global defaultcurhoplimit=65
@@ -51,7 +49,6 @@ netsh int ipv6 set global defaultcurhoplimit=65
 PAUSE
 GOTO:MAIN1
 
-::RESET
 :RESETIPV4
 CLS
 netsh int ipv4 set global defaultcurhoplimit=128
