@@ -1,21 +1,37 @@
 @ECHO OFF
+GOTO:PERMISSIONS
+
+:PERMISSIONS
+NET SESSION > NUL 2>&1
+IF %errorLevel% == 0 (
+GOTO:MAIN1
+) ELSE (
+ECHO Please run this program as Administrator.
+)
+PAUSE > NUL
+CLS
+ECHO Ending process...
+timeout 3 > NUL
+EXIT /b
 
 :MAIN1
 CLS
 SET INPUT1=false
 SET "MAIN1="
-ECHO + =========================================== +
-ECHO +   Configuration for bypass Mobile Hotspot   +
-ECHO + =========================================== +
-ECHO + [1] Show IPV4 details.                      +
-ECHO + [2] Show IPV6 details.                      +
-ECHO + [3] Set default hop limit for IPV4.         +
-ECHO + [4] Set default hop limit for IPV6.         +
-ECHO + [5] Reset default hop limit for IPV4.       +
-ECHO + [6] Reset default hop limit for IPV6.       +
-ECHO + =========================================== +
-ECHO + [7] Exit                                    +
-ECHO + =========================================== +
+ECHO ####################################################
+ECHO #   Configuration for bypass Mobile Hotspot Data   #
+ECHO ####################################################
+ECHO #                                                  #
+ECHO #  [1] Show IPV4 details.                          #
+ECHO #  [2] Show IPV6 details.                          #
+ECHO #  [3] Set default hop limit for IPV4.             #
+ECHO #  [4] Set default hop limit for IPV6.             #
+ECHO #  [5] Reset default hop limit for IPV4.           #
+ECHO #  [6] Reset default hop limit for IPV6.           #
+ECHO #                                                  #
+ECHO ####################################################
+ECHO #  [7] Exit                                        #
+ECHO ####################################################
 SET /p MAIN1="Input MENU number then press ENTER: "
 IF NOT DEFINED MAIN1 GOTO:MAIN1
 IF %MAIN1%==1 GOTO:SHOWIPV4
